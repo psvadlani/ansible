@@ -1,0 +1,18 @@
+--- # this is handler section
+- hosts: webservers
+  connection: ssh
+  become: yes
+
+
+  tasks:
+    - name: install httpd and service start we should use handler in ansible
+      action: yum name=httpd state=installed
+      notify: start httpd service
+
+
+
+
+  handlers:
+    - name: start httpd service
+      action: service name=httpd state=started
+

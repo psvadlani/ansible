@@ -1,0 +1,11 @@
+--- # to delete the file
+- hosts: webservers
+  become: yes
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: delete a file
+      file:
+        path:  /home/ansible/demofile
+        state: absent

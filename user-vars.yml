@@ -1,0 +1,12 @@
+--- #
+- hosts: all
+  become: yes
+  connection: ssh
+
+  vars_files:
+    - user.yml
+
+  tasks:
+    - name: create user {{user2}}
+      user:
+        name: "{{user2}}"

@@ -1,0 +1,6 @@
+--- # this is target section playbok
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+    

@@ -1,0 +1,11 @@
+--- #
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: yes
+
+  tasks:
+    - name: deleting the dir folder
+      file:
+        path: /home/ansible/testdir
+        state: absent

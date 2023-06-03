@@ -1,0 +1,12 @@
+--- # the file moving to hosy1 and hots2
+- hosts: webservers
+  connection: ssh
+  user: ansible
+  become: yes
+
+  tasks:
+    - name : copy index.html file to host 1 and 2
+      copy: 
+        src: /home/ansible/index.html
+        dest: /home/ansible
+        owner: rohit

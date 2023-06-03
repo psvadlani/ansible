@@ -1,0 +1,13 @@
+--- # this is file playbok
+- hosts: webservers
+  connection: ssh
+  become: yes
+  user: ansible
+
+
+  tasks: 
+    - name: creating a file 
+      file: 
+        path: /home/ansible/demofile
+        state: touch  
+

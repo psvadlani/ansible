@@ -1,0 +1,45 @@
+--- #
+- hosts: all
+  become: yes
+  connection: ssh
+  user: ansible
+
+  tasks:
+    - name: install httpd package
+      yum:
+        name: httpd
+        state: present
+
+      when: ansible_os_family == "RedHat"
+
+
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == "RedHat"
+
+
+
+
+    - name: install apache2 debian
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+
+    - name: start apache service
+      service:
+        name: apache2
+        state: started
+      when: ansible_os_family == "Debian"
+
+
+    - name: copy index.html filr
+      copy:
+        src: /home/ansilbe/index.html
+        dest: /var/www/html
+        owner: pavan
+        mode: 0777
+        

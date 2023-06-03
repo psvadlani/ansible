@@ -1,0 +1,19 @@
+--- # thid
+- hosts: webservers
+  become: yes
+  connection: ssh
+  user: ansible
+
+
+  tasks:
+    - name: remove pkg
+      yum:
+        name: httpd
+        state: absent
+
+    - name: start service
+      service:
+        name: httpd
+        state: stopped
+      
+

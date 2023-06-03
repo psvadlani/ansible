@@ -1,0 +1,13 @@
+--- #
+- hosts: webservers
+  connection: ssh
+  user: ansible
+  become: yes
+
+
+
+
+  tasks:
+    - name: installing java
+      action: yum pkg=java state=latest
+

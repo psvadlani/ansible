@@ -1,0 +1,15 @@
+--- #
+- hosts: all
+  become: yes
+
+
+  tasks:
+    - name: create a users
+      user: name='{{item}}' state=present
+      with_items:
+            - Raj
+            - Hari
+            - Pavan
+            - John
+            - Sumanth
+            - Jeffmaxwell

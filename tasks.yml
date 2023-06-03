@@ -1,0 +1,22 @@
+--- # this is tasks folder
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: installing httpd software in webservers
+      action: yum name=htt state=present
+      ignore_errors: yes
+
+
+
+    - name: installing git software
+      action: yum install git -y
+      ignore_errors: yes
+
+
+
+
+

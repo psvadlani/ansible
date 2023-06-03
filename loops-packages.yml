@@ -1,0 +1,15 @@
+--- #
+- hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+
+
+  tasks:
+    - name: installing multiple s/w u can write
+      yum: name = '{{item}}' state=present
+      with_items:
+        - httpd
+        - mysql
+        - docker
+        - tree

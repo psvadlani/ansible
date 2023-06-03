@@ -1,0 +1,12 @@
+--- # 
+- hosts: webservers
+  become: yes
+  connection: ssh
+  user: ansible
+
+
+  tasks:
+    - name: install packages
+      yum:
+        name: ['git','which','tree','docker','mysql','wget','httpd','java']
+        state: present
